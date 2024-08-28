@@ -37,7 +37,7 @@ print(out)
 ```
 
 ## Citation
-```bibtex
+```
 @misc{fan2024vitarvisiontransformerresolution,
     title={ViTAR: Vision Transformer with Any Resolution}, 
     author={Qihang Fan and Quanzeng You and Xiaotian Han and Yongfei Liu and Yunzhe Tao and Huaibo Huang and Ran He and Hongxia Yang},
