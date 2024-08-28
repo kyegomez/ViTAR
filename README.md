@@ -1,64 +1,50 @@
 [![Multi-Modality](agorabanner.png)](https://discord.gg/qUtxnK2NMf)
 
-# Python Package Template
-A easy, reliable, fluid template for python packages complete with docs, testing suites, readme's, github workflows, linting and much much more
+# Vitar Implementation
+Implementation of the paper: "ViTAR: Vision Transformer with Any Resolution"
 
-
-## Installation
-
-You can install the package using pip
-
-```bash
-pip install -e .
-```
-
-# Usage
-```python
-print("hello world")
+## Install
 
 ```
-
-
-
-### Code Quality 🧹
-
-- `make style` to format the code
-- `make check_code_quality` to check code quality (PEP8 basically)
-- `black .`
-- `ruff . --fix`
-
-### Tests 🧪
-
-[`pytests`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
-
-### Publish on PyPi 🚀
-
-**Important**: Before publishing, edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
-
-```
-poetry build
-poetry publish
+$ pip3 install -U vitar
 ```
 
-### CI/CD 🤖
+## Example
+````python
+import torch
+from vitar.main import Vitar
 
-We use [GitHub actions](https://github.com/features/actions) to automatically run tests and check code quality when a new PR is done on `main`.
+# Create a random input tensor
+x = torch.randn(1, 3, 224, 224)
 
-On any pull request, we will check the code quality and tests.
+# Initialize the Vitar model with specified parameters
+model = Vitar(
+    512,
+    8,
+    depth=12,
+    patch_size=16,
+    image_size=224,
+    channels=3,
+    ffn_dim=2048,
+    num_classes=1000,
+)
 
-When a new release is created, we will try to push the new code to PyPi. We use [`twine`](https://twine.readthedocs.io/en/stable/) to make our life easier. 
+# Pass the input tensor through the model
+out = model(x)
 
-The **correct steps** to create a new realease are the following:
-- edit `__version__` in [src/__init__](/src/__init__.py) to match the wanted new version.
-- create a new [`tag`](https://git-scm.com/docs/git-tag) with the release name, e.g. `git tag v0.0.1 && git push origin v0.0.1` or from the GitHub UI.
-- create a new release from GitHub UI
+# Print the output tensor
+print(out)
+```
 
-The CI will run when you create the new release.
-
-# Docs
-We use MK docs. This repo comes with the zeta docs. All the docs configurations are already here along with the readthedocs configs.
-
-
-
-# License
-MIT
+## Citation
+```bibtex
+@misc{fan2024vitarvisiontransformerresolution,
+    title={ViTAR: Vision Transformer with Any Resolution}, 
+    author={Qihang Fan and Quanzeng You and Xiaotian Han and Yongfei Liu and Yunzhe Tao and Huaibo Huang and Ran He and Hongxia Yang},
+    year={2024},
+    eprint={2403.18361},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV},
+    url={https://arxiv.org/abs/2403.18361}, 
+}
+```
