@@ -1,7 +1,7 @@
 [![Multi-Modality](agorabanner.png)](https://discord.gg/qUtxnK2NMf)
 
 # Vitar Implementation
-Implementation of the paper: "ViTAR: Vision Transformer with Any Resolution"
+Implementation of the paper: "ViTAR: Vision Transformer with Any Resolution" [PAPER LINK](https://arxiv.org/abs/2403.18361)
 
 ## Install
 
@@ -10,7 +10,7 @@ $ pip3 install -U vitar
 ```
 
 ## Example
-````python
+```python
 import torch
 from vitar.main import Vitar
 
@@ -35,3 +35,7 @@ out = model(x)
 # Print the output tensor
 print(out)
 ```
+
+# Todo
+- [ ] Implement a training script to train this model on coco and report results
+- [ ] Massive pre-training script on multiple datasets to test out the architecture
